@@ -53,16 +53,28 @@ body{background:#000;color:#fff;overflow-x:hidden;}
 .btn{
   margin-top:15px;
   background:#ff6b00;
-  padding:10px 20px;
-  border-radius:6px;
+  padding:10px 22px;
+  border-radius:8px;
   cursor:pointer;
   font-size:14px;
+  display:inline-block;
+  min-width:160px;
+  text-align:center;
 }
 
 /* SECTION */
 .section{
   padding:90px 10%;
   text-align:center;
+}
+
+/* SOCIAL PROOF */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  margin-top:20px;
+  opacity:0.7;
 }
 
 /* COLLAGE */
@@ -93,7 +105,7 @@ body{background:#000;color:#fff;overflow-x:hidden;}
 .collage img:nth-child(5){bottom:0;left:40%;}
 .collage img:nth-child(6){bottom:80px;right:15%;}
 
-/* ABOUT LOGO EFFECT */
+/* LOGO EFFECT */
 .logo-section img{
   width:120px;
   margin:20px auto;
@@ -202,6 +214,11 @@ button{
 .hero h1{font-size:26px;}
 .hero p{font-size:14px;}
 
+.stats{
+  flex-direction:column;
+  gap:10px;
+}
+
 .collage{
   height:auto;
 }
@@ -247,6 +264,15 @@ button{
   </div>
 </section>
 
+<!-- SOCIAL PROOF -->
+<section class="section fade">
+  <div class="stats">
+    <div>50+ Coffee Shops Featured</div>
+    <div>Interviews • Competitions • Stories</div>
+    <div>Growing Audience</div>
+  </div>
+</section>
+
 <!-- IMAGES -->
 <section class="section fade">
   <h2>BlindSip Experience</h2>
@@ -261,7 +287,7 @@ button{
   </div>
 </section>
 
-<!-- ABOUT + LOGO -->
+<!-- ABOUT -->
 <section class="section fade logo-section">
   <img src="logo.png">
 
