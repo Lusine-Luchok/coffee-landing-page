@@ -1,111 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coffee Landing</title>
+  <meta charset="UTF-8">
+  <title>Coffee Story</title>
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f8f8f8;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: black;
+    }
 
-/* HERO */
-.hero {
-  padding: 80px 20px;
-  text-align: center;
-  background: #ffffff;
-}
+    /* HERO VIDEO */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-.hero h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
+    .hero video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.hero p {
-  margin-bottom: 20px;
-  color: #555;
-}
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
 
-.btn {
-  background: black;
-  color: white;
-  padding: 12px 24px;
-  text-decoration: none;
-  border-radius: 5px;
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      top: 40%;
+      transform: translateY(-50%);
+    }
 
-/* SECTION */
-.section {
-  padding: 60px 20px;
-  max-width: 800px;
-  margin: auto;
-}
+    .hero h1 {
+      font-size: 48px;
+    }
 
-/* SERVICES */
-ul {
-  list-style: none;
-  padding: 0;
-}
+    .btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: white;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-li {
-  padding: 10px 0;
-}
+    /* SECTIONS */
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-/* FORM */
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-}
+    h2 {
+      margin-bottom: 20px;
+    }
 
-button {
-  padding: 12px;
-  background: black;
-  color: white;
-  border: none;
-  width: 100%;
-}
-</style>
+    /* SERVICES */
+    .services {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #111;
+      padding: 20px;
+      flex: 1;
+      min-width: 250px;
+    }
+
+    /* PRICING */
+    .pricing {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .price-card {
+      background: #111;
+      padding: 20px;
+      flex: 1;
+      min-width: 250px;
+      border: 1px solid #333;
+    }
+
+    /* FORM */
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+    }
+
+    button {
+      padding: 12px;
+      width: 100%;
+      background: white;
+      border: none;
+      font-weight: bold;
+    }
+
+  </style>
 </head>
 
 <body>
 
 <!-- HERO -->
-<section class="hero">
-  <h1>Coffee Photography for Small Brands</h1>
-  <p>I help coffee brands stand out with high-quality visuals</p>
-  <a href="#form" class="btn">Get Pricing</a>
-</section>
+<div class="hero">
+  <video autoplay muted loop>
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>We tell coffee stories</h1>
+    <p>Like a documentary for your brand</p>
+    <a href="#pricing" class="btn">View Pricing</a>
+  </div>
+</div>
 
 <!-- ABOUT -->
-<section class="section">
+<section>
   <h2>About</h2>
-  <p>I work with small businesses to create clean, modern, and professional product photography that builds trust and increases engagement.</p>
+  <p>I create cinematic content for coffee brands that want to stand out.</p>
 </section>
 
 <!-- SERVICES -->
-<section class="section">
+<section>
   <h2>Services</h2>
-  <ul>
-    <li>Product Photography</li>
-    <li>Brand Shoots</li>
-    <li>Social Media Content</li>
-  </ul>
+  <div class="services">
+    <div class="card">Product Photography</div>
+    <div class="card">Brand Storytelling</div>
+    <div class="card">Social Media Content</div>
+  </div>
 </section>
 
-<!-- FORM -->
-<section class="section" id="form">
-  <h2>Get Pricing</h2>
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Tell me about your project"></textarea>
-    <button type="submit">Send</button>
-  </form>
+<!-- PRICING -->
+<section id="pricing">
+  <h2>Pricing</h2>
+
+  <div class="pricing">
+    <div class="price-card">
+      <h3>Signature</h3>
+      <p>$2,500+</p>
+    </div>
+
+    <div class="price-card">
+      <h3>Premium</h3>
+      <p>$4,500+</p>
+    </div>
+
+    <div class="price-card">
+      <h3>Partner</h3>
+      <p>$8,000+</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <h2>Contact</h2>
+
+  <input placeholder="Your Name">
+  <input placeholder="Your Email">
+  <textarea placeholder="Tell me about your project"></textarea>
+  <button>Send</button>
 </section>
 
 </body>
