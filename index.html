@@ -51,7 +51,7 @@ body {
 /* CENTER CONTENT */
 .hero-content {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -59,10 +59,10 @@ body {
 
 /* 🔥 LOGO (FIXED + VISIBLE EFFECT) */
 .logo {
-  width: 140px; /* 🔥 մեծացրեցինք որ երևա */
+  width: 140px;
   margin-bottom: 20px;
   animation: float 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 20px rgba(239,120,51,0.5));
+  mix-blend-mode: multiply; /* 🔥 սա ջնջում է սպիտակ ֆոնը */
 }
 
 /* FLOAT ANIMATION */
@@ -95,7 +95,13 @@ body {
 /* SECTION */
 section {
   padding: 80px 20px;
+  .cta {
   text-align: center;
+}
+
+.cta .btn {
+  display: inline-block;
+  margin-top: 20px;
 }
 
 /* STATS */
@@ -116,8 +122,8 @@ section {
 }
 
 .video-grid video {
-  width: 100%;
-  border-radius: 12px;
+  height: 220px;
+  object-fit: cover;
 }
 
 /* MOBILE */
