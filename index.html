@@ -1,180 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Coffee Story</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLINDSIP</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: white;
-      background: black;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
-    /* HERO VIDEO */
-    .hero {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-    }
+<style>
+:root {
+  --orange: #ef7833;
+  --black: #000;
+  --white: #fff;
+}
 
-    .hero video {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
-    .overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-    }
+body {
+  background: var(--black);
+  color: var(--white);
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      top: 40%;
-      transform: translateY(-50%);
-    }
+/* HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
 
-    .hero h1 {
-      font-size: 48px;
-    }
+.hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
 
-    .btn {
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: white;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
 
-    /* SECTIONS */
-    section {
-      padding: 80px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: fadeUp 1s ease;
+}
 
-    h2 {
-      margin-bottom: 20px;
-    }
+.logo {
+  width: 110px;
+  margin-bottom: 25px;
+}
 
-    /* SERVICES */
-    .services {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
 
-    .card {
-      background: #111;
-      padding: 20px;
-      flex: 1;
-      min-width: 250px;
-    }
+.hero p {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 20px;
+}
 
-    /* PRICING */
-    .pricing {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.btn {
+  background: var(--orange);
+  color: var(--white);
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 6px;
+}
 
-    .price-card {
-      background: #111;
-      padding: 20px;
-      flex: 1;
-      min-width: 250px;
-      border: 1px solid #333;
-    }
+/* SECTIONS */
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
 
-    /* FORM */
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-    }
+/* SOCIAL PROOF */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 14px;
+  opacity: 0.8;
+}
 
-    button {
-      padding: 12px;
-      width: 100%;
-      background: white;
-      border: none;
-      font-weight: bold;
-    }
+/* VIDEOS */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
 
-  </style>
+.video-grid video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* STEPS */
+.steps-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* CTA */
+.cta {
+  padding: 100px 20px;
+}
+
+@keyframes fadeUp {
+  from {opacity:0; transform:translate(-50%, -40%);}
+  to {opacity:1; transform:translate(-50%, -50%);}
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats, .steps-grid {
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <!-- HERO -->
 <div class="hero">
-  <video autoplay muted loop>
+  <video autoplay muted loop playsinline>
     <source src="Omar%20video.mp4" type="video/mp4">
   </video>
+
   <div class="overlay"></div>
 
   <div class="hero-content">
-    <h1>We tell coffee stories</h1>
-    <p>Like a documentary for your brand</p>
-    <a href="#pricing" class="btn">View Pricing</a>
+    <img src="logo.png" class="logo">
+
+    <h1>Get Your Coffee Shop Featured</h1>
+    <p>We create cinematic stories that bring your brand to life</p>
+
+    <a href="#contact" class="btn">Get Featured</a>
   </div>
 </div>
+
+<!-- SOCIAL PROOF -->
+<section class="stats">
+  <div>50+ Coffee Shops Featured</div>
+  <div>Interviews • Competitions • Stories</div>
+  <div>Growing Audience</div>
+</section>
+
+<!-- VIDEOS -->
+<section>
+  <h2>Featured Stories</h2>
+
+  <div class="video-grid">
+    <video src="Omar%20video.mp4" autoplay muted loop></video>
+    <video src="Omar%20video.mp4" autoplay muted loop></video>
+    <video src="Omar%20video.mp4" autoplay muted loop></video>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <h2>How It Works</h2>
+
+  <div class="steps-grid">
+    <div>1. Visit</div>
+    <div>2. Film</div>
+    <div>3. Publish</div>
+    <div>4. Promote</div>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section>
   <h2>About</h2>
-  <p>I create cinematic content for coffee brands that want to stand out.</p>
+  <p>
+    We don’t just create content — we tell coffee stories.
+    Our goal is to help small brands stand out through cinematic storytelling.
+  </p>
 </section>
 
-<!-- SERVICES -->
-<section>
-  <h2>Services</h2>
-  <div class="services">
-    <div class="card">Product Photography</div>
-    <div class="card">Brand Storytelling</div>
-    <div class="card">Social Media Content</div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing">
-  <h2>Pricing</h2>
-
-  <div class="pricing">
-    <div class="price-card">
-      <h3>Signature</h3>
-      <p>$2,500+</p>
-    </div>
-
-    <div class="price-card">
-      <h3>Premium</h3>
-      <p>$4,500+</p>
-    </div>
-
-    <div class="price-card">
-      <h3>Partner</h3>
-      <p>$8,000+</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section>
-  <h2>Contact</h2>
-
-  <input placeholder="Your Name">
-  <input placeholder="Your Email">
-  <textarea placeholder="Tell me about your project"></textarea>
-  <button>Send</button>
+<!-- FINAL CTA -->
+<section id="contact" class="cta">
+  <h2>Want to be featured?</h2>
+  <a href="#" class="btn">Contact Us</a>
 </section>
 
 </body>
