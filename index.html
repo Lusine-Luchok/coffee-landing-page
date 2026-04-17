@@ -44,7 +44,11 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.85)
+  );
 }
 
 .hero-content {
@@ -56,14 +60,34 @@ body {
   animation: fadeUp 1s ease;
 }
 
-.logo {
-  width: 110px;
-  margin-bottom: 25px;
+/* LOGO MAGIC */
+.logo-wrap {
+  background: rgba(0,0,0,0.5);
+  padding: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
 }
 
+.logo {
+  width: 80px;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(239, 120, 51, 0.25);
+  transition: 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.08);
+}
+
+/* TEXT */
 .hero h1 {
   font-size: 48px;
   margin-bottom: 10px;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.7);
 }
 
 .hero p {
@@ -71,12 +95,19 @@ body {
   margin-bottom: 20px;
 }
 
+/* BUTTON */
 .btn {
   background: var(--orange);
   color: var(--white);
-  padding: 12px 24px;
+  padding: 14px 28px;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ff8a4d;
+  transform: translateY(-2px);
 }
 
 /* SECTIONS */
@@ -87,7 +118,7 @@ section {
   text-align: center;
 }
 
-/* SOCIAL PROOF */
+/* SOCIAL */
 .stats {
   display: flex;
   justify-content: center;
@@ -106,7 +137,14 @@ section {
 
 .video-grid video {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
+  transition: 0.4s;
+  filter: brightness(0.85);
+}
+
+.video-grid video:hover {
+  transform: scale(1.05);
+  filter: brightness(1);
 }
 
 /* STEPS */
@@ -122,9 +160,16 @@ section {
   padding: 100px 20px;
 }
 
+/* ANIMATIONS */
 @keyframes fadeUp {
   from {opacity:0; transform:translate(-50%, -40%);}
   to {opacity:1; transform:translate(-50%, -50%);}
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
 }
 
 /* MOBILE */
@@ -155,7 +200,10 @@ section {
   <div class="overlay"></div>
 
   <div class="hero-content">
-    <img src="logo.png" class="logo">
+
+    <div class="logo-wrap">
+      <img src="logo.png" class="logo">
+    </div>
 
     <h1>Get Your Coffee Shop Featured</h1>
     <p>We create cinematic stories that bring your brand to life</p>
@@ -164,7 +212,7 @@ section {
   </div>
 </div>
 
-<!-- SOCIAL PROOF -->
+<!-- SOCIAL -->
 <section class="stats">
   <div>50+ Coffee Shops Featured</div>
   <div>Interviews • Competitions • Stories</div>
@@ -203,7 +251,7 @@ section {
   </p>
 </section>
 
-<!-- FINAL CTA -->
+<!-- CTA -->
 <section id="contact" class="cta">
   <h2>Want to be featured?</h2>
   <a href="#" class="btn">Contact Us</a>
