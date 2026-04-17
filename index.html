@@ -23,14 +23,14 @@ body{background:#000;color:#fff;overflow-x:hidden;}
   width:100%;
   height:100%;
   object-fit:cover;
-  filter: blur(4px) brightness(0.6);
+  filter: blur(6px) brightness(0.5);
 }
 
 .overlay{
   position:absolute;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.3);
+  background:rgba(0,0,0,0.4);
 }
 
 .hero-content{
@@ -41,15 +41,8 @@ body{background:#000;color:#fff;overflow-x:hidden;}
   text-align:center;
 }
 
-.logo{
-  width:90px;
-  margin-bottom:10px;
-  mix-blend-mode:lighten;
-  filter: brightness(1.5);
-}
-
 .hero h1{
-  font-size:42px;
+  font-size:40px;
 }
 
 .hero p{
@@ -60,13 +53,11 @@ body{background:#000;color:#fff;overflow-x:hidden;}
 .btn{
   margin-top:15px;
   background:#ff6b00;
-  padding:10px 22px;
+  padding:10px 20px;
   border-radius:6px;
   cursor:pointer;
-  transition:0.3s;
+  font-size:14px;
 }
-
-.btn:hover{transform:scale(1.05);}
 
 /* SECTION */
 .section{
@@ -74,15 +65,49 @@ body{background:#000;color:#fff;overflow-x:hidden;}
   text-align:center;
 }
 
-/* STATS */
-.stats{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  opacity:0.6;
+/* COLLAGE */
+.collage{
+  position:relative;
+  height:600px;
+  margin-top:50px;
 }
 
-/* ABOUT + HOW IMPROVED */
+.collage img{
+  position:absolute;
+  width:240px;
+  border-radius:20px;
+  opacity:0;
+  transform:translateY(60px) scale(0.9);
+  transition:1s;
+}
+
+.collage.show img{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+.collage img:nth-child(1){top:0;left:10%;}
+.collage img:nth-child(2){top:80px;left:35%;}
+.collage img:nth-child(3){top:0;right:10%;}
+.collage img:nth-child(4){bottom:80px;left:15%;}
+.collage img:nth-child(5){bottom:0;left:40%;}
+.collage img:nth-child(6){bottom:80px;right:15%;}
+
+/* ABOUT LOGO EFFECT */
+.logo-section img{
+  width:120px;
+  margin:20px auto;
+  display:block;
+  filter: drop-shadow(0 0 20px rgba(255,107,0,0.7));
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{filter: drop-shadow(0 0 5px rgba(255,107,0,0.4));}
+  to{filter: drop-shadow(0 0 25px rgba(255,107,0,1));}
+}
+
+/* CARDS */
 .cards{
   display:flex;
   justify-content:center;
@@ -104,11 +129,6 @@ body{background:#000;color:#fff;overflow-x:hidden;}
   background:#ff6b00;
 }
 
-.card p{
-  margin-top:10px;
-  opacity:0.8;
-}
-
 /* STEPS */
 .steps{
   display:flex;
@@ -122,7 +142,6 @@ body{background:#000;color:#fff;overflow-x:hidden;}
   border:1px solid #333;
   padding:15px 20px;
   border-radius:10px;
-  transition:0.3s;
 }
 
 .step:hover{
@@ -163,10 +182,9 @@ button{
   border:none;
   border-radius:8px;
   color:#fff;
-  cursor:pointer;
 }
 
-/* FADE */
+/* ANIMATION */
 .fade{
   opacity:0;
   transform:translateY(50px);
@@ -176,6 +194,38 @@ button{
 .fade.show{
   opacity:1;
   transform:translateY(0);
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+.hero h1{font-size:26px;}
+.hero p{font-size:14px;}
+
+.collage{
+  height:auto;
+}
+
+.collage img{
+  position:static;
+  width:100%;
+  margin-bottom:15px;
+}
+
+.cards{
+  flex-direction:column;
+  align-items:center;
+}
+
+.card{width:90%;}
+
+.steps{
+  flex-direction:column;
+}
+
+.video-grid{
+  grid-template-columns:1fr;
+}
 }
 </style>
 </head>
@@ -191,44 +241,36 @@ button{
   <div class="overlay"></div>
 
   <div class="hero-content">
-    <img src="logo.png" class="logo">
-
     <h1>Get Your Coffee Shop Featured</h1>
-
     <p>Blindfolded coffee experience</p>
-
     <div class="btn">Get Featured</div>
   </div>
 </section>
 
-<!-- SOCIAL -->
+<!-- IMAGES -->
 <section class="section fade">
-  <div class="stats">
-    <div>50+ Shops</div>
-    <div>Interviews & Competitions</div>
-    <div>Growing Audience</div>
+  <h2>BlindSip Experience</h2>
+
+  <div class="collage" id="collage">
+    <img src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/coffee1.jpg">
+    <img src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/coffee2jpg.jpg">
+    <img src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/coffee3jpg.jpg">
+    <img src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/coffee4.jpg">
+    <img src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/coffee5.jpg">
+    <img src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/coffee6.jpg">
   </div>
 </section>
 
-<!-- ABOUT (UPGRADED) -->
-<section class="section fade">
+<!-- ABOUT + LOGO -->
+<section class="section fade logo-section">
+  <img src="logo.png">
+
   <h2>About BlindSip</h2>
 
   <div class="cards">
-    <div class="card">
-      👁️‍🗨️
-      <p>Blindfolded tasting experience</p>
-    </div>
-
-    <div class="card">
-      🎥
-      <p>Real reactions on camera</p>
-    </div>
-
-    <div class="card">
-      ☕
-      <p>Discover real taste differences</p>
-    </div>
+    <div class="card">Blindfolded tasting</div>
+    <div class="card">Real reactions</div>
+    <div class="card">True coffee experience</div>
   </div>
 </section>
 
@@ -259,28 +301,32 @@ button{
   </div>
 </section>
 
-<!-- FINAL CTA -->
+<!-- CTA -->
 <section class="section fade">
   <h2>Want to be featured?</h2>
 
   <form>
-    <input type="text" placeholder="Your Coffee Shop Name">
-    <input type="email" placeholder="Email">
+    <input placeholder="Coffee Shop Name">
+    <input placeholder="Email">
     <textarea placeholder="Tell us about your shop"></textarea>
-    <button type="submit">Contact Us</button>
+    <button>Contact Us</button>
   </form>
 </section>
 
 <script>
 const fades=document.querySelectorAll('.fade');
+const collage=document.getElementById('collage');
 
 window.addEventListener('scroll',()=>{
   fades.forEach(el=>{
-    const top=el.getBoundingClientRect().top;
-    if(top<window.innerHeight-100){
+    if(el.getBoundingClientRect().top < window.innerHeight-100){
       el.classList.add('show');
     }
   });
+
+  if(collage.getBoundingClientRect().top < window.innerHeight-100){
+    collage.classList.add('show');
+  }
 });
 </script>
 
