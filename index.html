@@ -10,21 +10,29 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
 body{background:#000;color:#fff;overflow-x:hidden;}
 
-.hero{position:relative;height:100vh;}
+/* HERO */
+.hero{
+  position:relative;
+  height:100vh;
+}
+
 .hero video{
   width:100%;
   height:100%;
   object-fit:cover;
   filter: blur(6px) brightness(0.5);
 }
+
 .overlay{
   position:absolute;
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.4);
 }
+
 .hero-content{
   position:absolute;
   top:50%;
@@ -32,8 +40,16 @@ body{background:#000;color:#fff;overflow-x:hidden;}
   transform:translate(-50%,-50%);
   text-align:center;
 }
-.hero h1{font-size:40px;}
-.hero p{opacity:0.85;margin-top:8px;}
+
+.hero h1{
+  font-size:40px;
+}
+
+.hero p{
+  opacity:0.85;
+  margin-top:8px;
+}
+
 .btn{
   margin-top:15px;
   background:#ff6b00;
@@ -41,10 +57,123 @@ body{background:#000;color:#fff;overflow-x:hidden;}
   border-radius:8px;
   cursor:pointer;
   font-size:14px;
+  display:inline-block;
+  min-width:160px;
+  text-align:center;
 }
 
-.section{padding:90px 10%;text-align:center;}
+/* SECTION */
+.section{
+  padding:90px 10%;
+  text-align:center;
+}
 
+/* SOCIAL PROOF */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  margin-top:20px;
+  opacity:0.7;
+}
+
+/* COLLAGE */
+.collage{
+  position:relative;
+  height:600px;
+  margin-top:50px;
+}
+
+.collage img{
+  position:absolute;
+  width:240px;
+  border-radius:20px;
+  opacity:0;
+  transform:translateY(60px) scale(0.9);
+  transition:1s;
+}
+
+.collage.show img{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+.collage img:nth-child(1){top:0;left:10%;}
+.collage img:nth-child(2){top:80px;left:35%;}
+.collage img:nth-child(3){top:0;right:10%;}
+.collage img:nth-child(4){bottom:80px;left:15%;}
+.collage img:nth-child(5){bottom:0;left:40%;}
+.collage img:nth-child(6){bottom:80px;right:15%;}
+
+/* LOGO EFFECT */
+.logo-section img{
+  width:120px;
+  margin:20px auto;
+  display:block;
+  filter: drop-shadow(0 0 20px rgba(255,107,0,0.7));
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{filter: drop-shadow(0 0 5px rgba(255,107,0,0.4));}
+  to{filter: drop-shadow(0 0 25px rgba(255,107,0,1));}
+}
+
+/* CARDS */
+.cards{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.card{
+  background:#111;
+  padding:25px;
+  border-radius:15px;
+  width:250px;
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  background:#ff6b00;
+}
+
+/* STEPS */
+.steps{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.step{
+  border:1px solid #333;
+  padding:15px 20px;
+  border-radius:10px;
+}
+
+.step:hover{
+  background:#ff6b00;
+}
+
+/* VIDEOS */
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+  margin-top:40px;
+}
+
+video{
+  width:100%;
+  border-radius:15px;
+}
+
+/* FORM */
 form{
   max-width:400px;
   margin:30px auto;
@@ -52,11 +181,13 @@ form{
   flex-direction:column;
   gap:15px;
 }
+
 input,textarea{
   padding:12px;
   border:none;
   border-radius:8px;
 }
+
 button{
   background:#ff6b00;
   padding:12px;
@@ -65,44 +196,182 @@ button{
   color:#fff;
 }
 
-.fade{opacity:0;transform:translateY(50px);transition:1s;}
-.fade.show{opacity:1;transform:translateY(0);}
+/* ANIMATION */
+.fade{
+  opacity:0;
+  transform:translateY(50px);
+  transition:1s;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+.hero h1{font-size:26px;}
+.hero p{font-size:14px;}
+
+.stats{
+  flex-direction:column;
+  gap:10px;
+}
+
+.collage{
+  height:auto;
+}
+
+.collage img{
+  position:static;
+  width:100%;
+  margin-bottom:15px;
+}
+
+.cards{
+  flex-direction:column;
+  align-items:center;
+}
+
+.card{width:90%;}
+
+.steps{
+  flex-direction:column;
+}
+
+.video-grid{
+  grid-template-columns:1fr;
+}
+}
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
   <video autoplay muted loop playsinline>
     <source src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/Omar%20video.mp4">
   </video>
+
   <div class="overlay"></div>
 
   <div class="hero-content">
     <h1>Get Your Coffee Shop Featured</h1>
     <p>Blindfolded coffee experience</p>
-    <div class="btn">Apply Now</div>
+    <div class="btn" id="apply-btn">Get Featured</div>
   </div>
 </section>
 
+<!-- SOCIAL PROOF -->
 <section class="section fade">
-  <div>50+ Coffee Shops Featured</div>
+  <div class="stats">
+    <div>50+ Coffee Shops Featured</div>
+    <div>Interviews • Competitions • Stories</div>
+    <div>Growing Audience</div>
+  </div>
 </section>
 
+<!-- IMAGES -->
 <section class="section fade">
-  <h2>Apply Now</h2>
+  <h2>BlindSip Experience</h2>
+
+  <div class="collage" id="collage">
+    <img src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/coffee1.jpg">
+    <img src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/coffee2jpg.jpg">
+    <img src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/coffee3jpg.jpg">
+    <img src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/coffee4.jpg">
+    <img src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/coffee5.jpg">
+    <img src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/coffee6.jpg">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section fade logo-section">
+  <img src="logo.png">
+
+  <h2>About BlindSip</h2>
+
+ <div class="cards">
+
+  <div class="card">
+    <div style="font-size:30px;">👁️‍🗨️</div>
+    <p>Blindfolded tasting</p>
+  </div>
+
+  <div class="card">
+    <div style="font-size:30px;">🎥</div>
+    <p>Real reactions</p>
+  </div>
+
+  <div class="card">
+    <div style="font-size:30px;">☕</div>
+    <p>True coffee experience</p>
+  </div>
+
+</div>
+</section>
+
+<!-- HOW -->
+<section class="section fade">
+  <h2>How It Works</h2>
+
+  <div class="steps">
+    <div class="step">Visit</div>
+    <div class="step">Film</div>
+    <div class="step">Publish</div>
+    <div class="step">Promote</div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="section fade">
+  <h2>Real Reactions</h2>
+
+  <div class="video-grid">
+    <video controls>
+      <source src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/video1.mp4">
+    </video>
+
+    <video controls>
+      <source src="https://raw.githubusercontent.com/Lusine-Luchok/coffee-landing-page/main/video2.mp4">
+    </video>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section fade">
+  <h2>Want to be featured?</h2>
 
   <form id="contact-form">
     <input name="name" placeholder="Coffee Shop Name" required>
     <input name="email" type="email" placeholder="Email" required>
     <textarea name="message" placeholder="Tell us about your shop"></textarea>
-    <button type="submit">Submit</button>
+    <button type="submit">Contact Us</button>
   </form>
 
-  <p id="success-message" style="display:none;color:#ff6b00;">
+  <p id="success-message" style="display:none;color:#ff6b00;margin-top:10px;">
     ✅ Your request has been sent! Check your email 📩
   </p>
 </section>
+
+<script>
+const fades=document.querySelectorAll('.fade');
+const collage=document.getElementById('collage');
+
+window.addEventListener('scroll',()=>{
+  fades.forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight-100){
+      el.classList.add('show');
+    }
+  });
+
+  if(collage.getBoundingClientRect().top < window.innerHeight-100){
+    collage.classList.add('show');
+  }
+});
+</script>
 
 <!-- EMAILJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -125,19 +394,10 @@ document.getElementById("contact-form").addEventListener("submit", function(e){
 });
 </script>
 
+<!-- SCROLL -->
 <script>
-document.querySelector('.btn').addEventListener('click', () => {
-  document.querySelector('#contact-form').scrollIntoView({ behavior: 'smooth' });
-});
-
-const fades=document.querySelectorAll('.fade');
-
-window.addEventListener('scroll',()=>{
-  fades.forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight-100){
-      el.classList.add('show');
-    }
-  });
+document.getElementById("apply-btn").addEventListener("click", () => {
+  document.getElementById("contact-form").scrollIntoView({ behavior: "smooth" });
 });
 </script>
 
